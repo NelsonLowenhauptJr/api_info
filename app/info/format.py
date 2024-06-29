@@ -8,9 +8,10 @@ def currency_formatter(unformated_value):
 
     Formata um número para o formato padrão do BRL brasileiro.
     """
-    
-    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
-    formatted= locale.currency(unformated_value, grouping=True, symbol=None)
+    formatted= '{:,.2f}'.format(unformated_value)
+    formatted= formatted.replace(',','*')
+    formatted= formatted.replace('.',',')
+    formatted= formatted.replace('*','.')
 
     return formatted
